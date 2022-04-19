@@ -2,26 +2,16 @@
 using namespace std;
 
 int main (){
-	string s;
-	int i;
-	while (cin>>s){
-		int l=s.size();
-		if (l%2) cout<<"NO\n";
-		else{
-			for (i=0; i<l/2; i++){
-				if (s[i]!=s[l-i-1]){
-					cout<<"NO\n"; break;
-				}				
-			}
-			if (i==l/2){
-				cout<<"YES\n";
-				for (int i=0; i<l/2; i++)
-					cout<<s[i];
-			} 
-			 
+	string s; cin>>s;
+	int l=s.size();
+	if (l%2){
+		cout<<"NO"; return 0;
+	}
+	for (int i=0; 2*i<l; i++){
+		if (s[i]!=s[l-i-1]){
+			cout<<"NO"; return 0;
 		}
 	}
-	
-	
-	return 0;
+	cout<<"YES\n";	//程式能走到這裡一定是yes了 
+	for (int i=0; 2*i<l; i++)cout<<s[i];
 }
